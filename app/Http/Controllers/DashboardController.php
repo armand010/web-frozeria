@@ -10,6 +10,7 @@ class DashboardController extends Controller
     {
         // Info Cards
         $totalItems = \App\Models\Item::count();
+        $totalCategories = \App\Models\Category::count();
         $lowStockItems = \App\Models\Item::where('current_stock', '<', 20)->where('current_stock', '>', 0)->count();
         $outOfStockItems = \App\Models\Item::where('current_stock', 0)->count();
 
@@ -29,6 +30,6 @@ class DashboardController extends Controller
         $items = $query->latest()->paginate(10);
         $categories = \App\Models\Category::all();
 
-        return view('dashboard.index', compact('items', 'categories', 'totalItems', 'lowStockItems', 'outOfStockItems'));
+        return view('dashboard.index', compact('items', 'categories', 'totalItems', 'totalCategories', 'lowStockItems', 'outOfStockItems'));
     }
 }

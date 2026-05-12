@@ -2,24 +2,32 @@
 
 @section('content')
 <div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card text-white bg-primary">
+    <div class="col-md-3">
+        <div class="card text-black ">
             <div class="card-body">
                 <h5 class="card-title">Total Barang</h5>
                 <p class="card-text display-6">{{ $totalItems }}</p>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-warning">
+    <div class="col-md-3">
+        <div class="card text-black">
+            <div class="card-body">
+                <h5 class="card-title">Total Kategori</h5>
+                <p class="card-text display-6">{{ $totalCategories }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-black">
             <div class="card-body">
                 <h5 class="card-title">Stok Menipis</h5>
                 <p class="card-text display-6">{{ $lowStockItems }}</p>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-danger">
+    <div class="col-md-3">
+        <div class="card text-black">
             <div class="card-body">
                 <h5 class="card-title">Stok Habis</h5>
                 <p class="card-text display-6">{{ $outOfStockItems }}</p>
@@ -76,7 +84,7 @@
                             <td>Rp {{ number_format($item->sell_price, 0, ',', '.') }}</td>
                             <td>
                                 <a href="{{ route('items.show', $item->id) }}" class="btn btn-info btn-sm text-white"><i class="bi bi-eye"></i> Detail</a>
-                                <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i> Edit</a>
+                                <a href="{{ route('item', $item->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i> Edit</a>
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteItemModal{{ $item->id }}">
                                     <i class="bi bi-trash"></i> Hapus
                                 </button>
